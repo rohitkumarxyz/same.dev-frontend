@@ -10,7 +10,7 @@ import { ToastContainer } from 'react-toastify';
 createRoot(document.getElementById("root")!).render(
   <RecoilRoot>
 
-    <GoogleOAuthProvider clientId={"67043714389-mt91jk8ptf1b2e466lb5lmo137oh316s.apps.googleusercontent.com"}>
+    <GoogleOAuthProvider clientId={""}>
       <App />
       <ToastContainer
         position="top-right"
