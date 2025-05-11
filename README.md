@@ -1,54 +1,90 @@
-# React + TypeScript + Vite
+# Same.dev Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend codebase for the **Same.dev** project, built using **React**, **TypeScript**, and **Vite**. It includes features like a file tree, code editor, and integrations with backend APIs.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React**: For building the user interface.
+- **TypeScript**: For type-safe development.
+- **Vite**: For fast development and build tooling.
+- **Jotai**: For state management.
+- **React-Resizable-Panels**: For creating resizable UI panels.
+- **React-Toastify**: For notifications.
+- **CodeMirror**: For the code editor.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **File Tree**: Displays project files and folders, with sorting like an IDE.
+- **Code Editor**: Edit files with syntax highlighting and support for binary files.
+- **Preview Mode**: Toggle between code view and preview mode.
+- **API Integration**: Fetch and save project data using backend APIs.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- **Node.js** (v16 or higher)
+- **npm** or **yarn**
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/same.dev.git
+   cd same.dev/frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Create a `.env` file in the root directory and add the following:
+   ```env
+   VITE_PUBLIC_BACKEND_URL=http://your-backend-url
+   ```
+
+### Running the Project
+
+Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The app will be available at `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Building for Production
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+To build the project for production:
+```bash
+npm run build
+# or
+yarn build
 ```
+
+
+## Folder Structure
+
+```
+frontend/
+├── src/
+│   ├── component/       # Reusable components (e.g., Filetree, CodeEditor)
+│   ├── pages/           # Page components (e.g., ChatPage, LoginPage)
+│   ├── service/         # API calls and integrations
+│   ├── store/           # State management (e.g., Jotai atoms)
+│   ├── data/            # Static data (e.g., file icons, folder structure)
+│   ├── utils/           # Utility functions
+│   ├── App.tsx          # Main app component
+│   └── main.tsx         # Entry point
+├── public/              # Static assets
+├── .env                 # Environment variables
+├── package.json         # Project dependencies and scripts
+└── README.md            # Project documentation
+```
+
