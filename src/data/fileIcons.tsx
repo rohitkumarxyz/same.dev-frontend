@@ -1,0 +1,61 @@
+import { Icon } from '@iconify/react';
+import fileTypeTs from '@iconify/icons-vscode-icons/file-type-typescript';
+import fileTypeTsx from '@iconify/icons-vscode-icons/file-type-reactts';
+import fileTypeJs from '@iconify/icons-vscode-icons/file-type-js';
+import fileTypeJsx from '@iconify/icons-vscode-icons/file-type-reactjs';
+import fileTypeJson from '@iconify/icons-vscode-icons/file-type-json';
+import fileTypeHtml from '@iconify/icons-vscode-icons/file-type-html';
+import fileTypeCss from '@iconify/icons-vscode-icons/file-type-css';
+import fileTypeScss from '@iconify/icons-vscode-icons/file-type-scss';
+import fileTypeMarkdown from '@iconify/icons-vscode-icons/file-type-markdown';
+import fileTypeYaml from '@iconify/icons-vscode-icons/file-type-yaml';
+import fileTypeSvg from '@iconify/icons-vscode-icons/file-type-svg';
+import fileTypeImage from '@iconify/icons-vscode-icons/file-type-image';
+import fileTypeNode from '@iconify/icons-vscode-icons/file-type-node';
+import fileTypeNpm from '@iconify/icons-vscode-icons/file-type-npm';
+import fileTypeYarn from '@iconify/icons-vscode-icons/file-type-yarn';
+import fileTypePrettier from '@iconify/icons-vscode-icons/file-type-prettier';
+import fileTypeEslint from '@iconify/icons-vscode-icons/file-type-eslint';
+import fileTypeBabel from '@iconify/icons-vscode-icons/file-type-babel';
+import fileTypeWebpack from '@iconify/icons-vscode-icons/file-type-webpack';
+import fileTypeVite from '@iconify/icons-vscode-icons/file-type-vite';
+import fileTypeJest from '@iconify/icons-vscode-icons/file-type-jest';
+import fileTypeGit from '@iconify/icons-vscode-icons/file-type-git';
+import fileTypeDocker from '@iconify/icons-vscode-icons/file-type-docker';
+import fileTypeNext from '@iconify/icons-vscode-icons/file-type-next';
+import fileTypeVercel from '@iconify/icons-vscode-icons/file-type-vercel';
+import fileTypeFolder from '@iconify/icons-vscode-icons/default-folder-opened';
+import fileTypeFolderClosed from '@iconify/icons-vscode-icons/default-folder';
+import fileSystem from '@iconify/icons-vscode-icons/file-type-rust';
+export function getFileIcon(name: string, isFolder: boolean, expanded: boolean) {
+  if (isFolder) {
+    return <Icon icon={expanded ? fileTypeFolder : fileTypeFolderClosed} width={20} height={20} />;
+  }
+  if (name.endsWith('.ts')) return <Icon icon={fileTypeTs} width={20} height={20} />;
+  if (name.endsWith('.tsx')) return <Icon icon={fileTypeTsx} width={20} height={20} />;
+  if (name.endsWith('.js')) return <Icon icon={fileTypeJs} width={20} height={20} />;
+  if (name.endsWith('.jsx')) return <Icon icon={fileTypeJsx} width={20} height={20} />;
+  if (name.endsWith('.json')) return <Icon icon={fileTypeJson} width={20} height={20} />;
+  if (name.endsWith('.html')) return <Icon icon={fileTypeHtml} width={20} height={20} />;
+  if (name.endsWith('.css')) return <Icon icon={fileTypeCss} width={20} height={20} />;
+  if (name.endsWith('.scss')) return <Icon icon={fileTypeScss} width={20} height={20} />;
+  if (name.endsWith('.md')) return <Icon icon={fileTypeMarkdown} width={20} height={20} />;
+  if (name.endsWith('.yaml')) return <Icon icon={fileTypeYaml} width={20} height={20} />;
+  if (name.endsWith('.svg')) return <Icon icon={fileTypeSvg} width={20} height={20} />;
+  if (name.endsWith('.ico') || name.endsWith('.png') || name.endsWith('.jpg') || name.endsWith('.jpeg') || name.endsWith('.gif')) return <Icon icon={fileTypeImage} width={20} height={20} />;
+  if (name.endsWith('.node')) return <Icon icon={fileTypeNode} width={20} height={20} />;
+  if (name.endsWith('.npm')) return <Icon icon={fileTypeNpm} width={20} height={20} />;
+  if (name.endsWith('.yarn')) return <Icon icon={fileTypeYarn} width={20} height={20} />;
+  if (name.endsWith('.prettier')) return <Icon icon={fileTypePrettier} width={20} height={20} />;
+  if (name.endsWith('.eslint')) return <Icon icon={fileTypeEslint} width={20} height={20} />;
+  if (name.endsWith('.babel')) return <Icon icon={fileTypeBabel} width={20} height={20} />;
+  if (name.endsWith('.webpack')) return <Icon icon={fileTypeWebpack} width={20} height={20} />;
+  if (name.endsWith('.vite')) return <Icon icon={fileTypeVite} width={20} height={20} />;
+  if (name.endsWith('.jest')) return <Icon icon={fileTypeJest} width={20} height={20} />;
+  if (name.endsWith('.git')) return <Icon icon={fileTypeGit} width={20} height={20} />;
+  if (name.endsWith('.docker')) return <Icon icon={fileTypeDocker} width={20} height={20} />;
+  if (name.endsWith('.next')) return <Icon icon={fileTypeNext} width={20} height={20} />;
+  if (name.endsWith('.vercel')) return <Icon icon={fileTypeVercel} width={20} height={20} />;
+  if (name.endsWith('.env')) return <Icon icon={fileSystem} width={20} height={20} />;
+  return <Icon icon={fileTypeJs} width={20} height={20} />; // fallback
+} 

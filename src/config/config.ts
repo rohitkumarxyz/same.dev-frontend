@@ -1,0 +1,1 @@
+export const PUBLIC_BACKEND_URL = "http://localhost:3000";

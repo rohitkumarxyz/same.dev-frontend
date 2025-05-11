@@ -1,0 +1,28 @@
+@import "tailwindcss";
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientMove 6s ease-in-out infinite;
+  }
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animate-border {
+    animation: borderRun 3s linear infinite;
+    background-size: 200% 200%;
+  }
+  @keyframes borderRun {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+
+/* css for code editor */
+  :root {
+    --cm-cursor-width: 2px;
+    --cm-cursor-backgroundColor: #F8F8F2;
+    --cm-selection-backgroundColorFocused: #264F78;
+    --cm-selection-backgroundOpacityFocused: 0.5;
+    --cm-selection-backgroundColorBlured: #3A3D41;
+    --cm-selection-backgroundOpacityBlured: 0.3;
+  }
