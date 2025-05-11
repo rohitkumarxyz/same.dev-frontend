@@ -5,12 +5,13 @@ import App from "./App.tsx";
 import { RecoilRoot } from "recoil";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ToastContainer } from 'react-toastify';
+import { GOOGLE_CLIENT_ID } from './config/config.ts';
+console.log("Google Client ID:", GOOGLE_CLIENT_ID),
 
 
 createRoot(document.getElementById("root")!).render(
   <RecoilRoot>
-
-    <GoogleOAuthProvider clientId={""}>
+    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
       <App />
       <ToastContainer
         position="top-right"
