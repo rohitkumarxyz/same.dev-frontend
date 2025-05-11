@@ -6,6 +6,7 @@ import { fileTreeData, type FileWithContent } from '../data/folderStucture';
 import { codeSource } from '../store/atom/codeScource';
 import { getSourceCode } from '../service/apiCalls';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function TreeNode({
   node,
@@ -50,22 +51,30 @@ function TreeNode({
 export default function Filetree() {
   const [file, setFile] = useAtom(activeFile);
   const [source, setSource] = useAtom(codeSource);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("source", source);
     const getSource = async () => {
-      const projectId = window.location.pathname.split('/')[2];
-      const source = await getSourceCode(projectId);
-      if(!source.data.status){
-        toast.error(source.data.message);
-        return;
+      try {
+        const projectId = window.location.pathname.split('/')[2];
+        const response = await getSourceCode(projectId);
+        if (response.data?.data) {
+          setSource(response.data.data);
+        } else {
+          navigate("/");
+        }
+      } catch (error: any) {
+        const errorMessage =
+          error?.response?.data?.message || error?.message || "An unexpected error occurred";
+        toast.error(errorMessage);
       }
-      setSource(source.data.data);
-    }
-    if (source.length<=0) {
+    };
+
+    if (source.length === 0) {
       getSource();
     }
-  }, [source]);
+  }, []);
+
   return (
     <div className="h-full rounded-lg shadow p-4 text-gray-500 font-sans w-full mx-auto ">
       {source.map((node) => (
